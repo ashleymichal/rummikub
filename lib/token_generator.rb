@@ -1,7 +1,6 @@
-require 'token'
-
 class TokenGenerator
-	def self.build_token token_options
-		Token.new(token_options)
+	def self.build_token color, number
+		token = Struct.new :color, :number
+		token.new(color, number)
 	end
 end

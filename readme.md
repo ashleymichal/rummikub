@@ -9,3 +9,8 @@ At the start of each game, Rummikub generates a new Token Bag containing two eac
 token.color = :red
 
 token.number = 1
+
+token_bag = TokenGenerator.new_bag
+
+token_bag.size
+	=> 48

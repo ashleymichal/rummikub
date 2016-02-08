@@ -1,7 +1,11 @@
 class TokenGenerator
 	COLORS = [:red, :blue, :yellow, :green]
 	NUMBERS = (1..12)
-	TOKEN = Struct.new :color, :number
+	TOKEN = Struct.new :color, :number do
+		private
+			def color=(); end
+			def number=(); end
+	end
 
 	def self.build_token color, number
 		TOKEN.new(color, number)

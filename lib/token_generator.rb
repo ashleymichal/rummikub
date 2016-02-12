@@ -1,17 +1,21 @@
 class TokenGenerator
-	@@colors = [:red, :blue, :yellow, :green]
-	@@numbers = (1..12)
+	COLORS = [:red, :blue, :yellow, :green]
+	NUMBERS = (1..12)
+	Token = Struct.new :color, :number do
+		private
+			def color=(); end
+			def number=(); end
+	end
 
 	def self.build_token color, number
-		token = Struct.new :color, :number
-		token.new(color, number)
+		Token.new(color, number)
 	end
 
 	def self.new_bag
-		## TODO: build bag with all permutations of @@colors & @@numbers x2
+		## TODO: build bag with all permutations of COLORS & NUMBERS x2
 		bag = []
-		@@colors.each do |color|
-			@@numbers.each do |number|
+		COLORS.each do |color|
+			NUMBERS.each do |number|
 				2.times { bag << TokenGenerator.build_token(color, number) }
 			end
 		end
@@ -19,11 +23,11 @@ class TokenGenerator
 	end
 
 	def self.colors
-		@@colors
+		COLORS
 	end
 
 	def self.numbers
-		@@numbers
+		NUMBERS
 	end
 
 end

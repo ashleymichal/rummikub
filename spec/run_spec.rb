@@ -1,6 +1,6 @@
 require_relative '../lib/run'
 
-RSpec.describe Run, '#id' do
+describe Run, '#id' do
   it "returns an auto-incrementing id" do
     run1 = Run.new([:token])
     run2 = Run.new([:token])
@@ -8,14 +8,14 @@ RSpec.describe Run, '#id' do
   end
 end
 
-RSpec.describe Run, '#tokens' do
+describe Run, '#tokens' do
   it "returns the instance's list of tokens" do
     run = Run.new([:RED1, :RED2, :RED3])
     expect(run.tokens).to eq [:RED1, :RED2, :RED3]
   end
 end
 
-RSpec.describe Run, '#add' do
+describe Run, '#add' do
   it "adds given tokens to the instance's list of tokens" do
     run = Run.new([:RED1, :RED2, :RED3])
     expect(run.add([:RED4])).to eq [:RED1, :RED2, :RED3, :RED4]
@@ -23,10 +23,11 @@ RSpec.describe Run, '#add' do
   end
 end
 
-RSpec.describe Run, '#remove' do
+describe Run, '#remove' do
   it "removes given tokens from the instance's list of tokens" do
     run = Run.new([:RED1, :RED2, :RED3, :RED4])
     expect(run.remove([:RED4])).to eq [:RED1, :RED2, :RED3]
     expect(run.tokens).to eq [:RED1, :RED2, :RED3]
   end
 end
+

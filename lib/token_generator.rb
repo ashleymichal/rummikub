@@ -30,4 +30,14 @@ class TokenGenerator
 		NUMBERS
 	end
 
+	private
+
+		def combinations
+			Colors.each do |color|
+				Numbers.each do |number|
+					2.times { bag << TokenGenerator.build_token(color, number) }
+				end
+			end
+		end
+
 end
